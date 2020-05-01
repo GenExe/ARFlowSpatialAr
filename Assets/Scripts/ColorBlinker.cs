@@ -21,6 +21,7 @@ public class ColorBlinker : MonoBehaviour
         startColor = Color1;
         endColor = Color2;
     }
+    
 
     void Update()
     {
