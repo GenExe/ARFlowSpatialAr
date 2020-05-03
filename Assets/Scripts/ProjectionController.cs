@@ -27,14 +27,15 @@ public class ProjectionController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             DisableAll();
+            currentStep = currentStep < steps.Count - 1 ? currentStep + 1 : 0;
             steps[currentStep].SetActive(true);
-            currentStep += 1;
+            
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             DisableAll();
-            currentStep -= 1;
+            currentStep = currentStep > 0 ? currentStep - 1 : steps.Count - 1;
             steps[currentStep].SetActive(true);
         }
         
