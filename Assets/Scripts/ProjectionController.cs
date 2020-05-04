@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ProjectionController : MonoBehaviour
 {
+    public GameObject NespressoModel;
+    public GameObject NespressoMask;
+
+    [Header("Change Model Type for Object Recognition")]
+    public bool activateQrCode;
     public List<GameObject> steps;
     public int currentStep = 0;
         
@@ -38,6 +43,16 @@ public class ProjectionController : MonoBehaviour
             currentStep = currentStep > 0 ? currentStep - 1 : steps.Count - 1;
             steps[currentStep].SetActive(true);
         }
-        
+
+        if (activateQrCode)
+        {
+            NespressoMask.gameObject.SetActive(false);
+            NespressoModel.gameObject.SetActive(true);
+        }
+        else
+        {
+            NespressoMask.gameObject.SetActive(true);
+            NespressoModel.gameObject.SetActive(false);
+        }
     }
 }
